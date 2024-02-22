@@ -2,39 +2,38 @@
 #include <iostream>
 
 // Class that emulates a 2-dimensional array
-template <typename T>
-class myMatrix{
-    private:
-        class matrixRow{
-            public:
-                matrixRow(); // Why? Because new only uses 0 parameter constructors.
-                T& operator[] (unsigned int index);
+template <typename T> class myMatrix {
+  private:
+    class matrixRow {
+      public:
+        matrixRow(); // Why? Because new only uses 0 parameter constructors.
+        T &operator[](unsigned int index);
 
-                bool setSize(unsigned int newSize);
-                
-            private:
-                void allocate(unsigned int size);
+        bool setSize(unsigned int newSize);
 
-                unsigned int m_size = 0;
-                T* m_array;
-        };
+      private:
+        void allocate(unsigned int size);
 
-        matrixRow* m_matrix;
-        unsigned int m_rowSize, m_rowAmount;
+        unsigned int m_size = 0;
+        T *m_array;
+    };
 
-    public:
-        myMatrix(unsigned int dimensionX, unsigned int dimensionY);
-        myMatrix(unsigned int dimensionXY);
-        myMatrix();
+    matrixRow *m_matrix;
+    unsigned int m_rowSize, m_rowAmount;
 
-        void allocateMatrix(unsigned int dimensionX, unsigned int dimensionY);
+  public:
+    myMatrix(unsigned int dimensionX, unsigned int dimensionY);
+    myMatrix(unsigned int dimensionXY);
+    myMatrix();
 
-        unsigned int getSizeX();
-        unsigned int getSizeY();
+    void allocateMatrix(unsigned int dimensionX, unsigned int dimensionY);
 
-        matrixRow& operator[] (unsigned int index);
+    unsigned int getSizeX();
+    unsigned int getSizeY();
 
+    matrixRow &operator[](unsigned int index);
 };
 
-// Template definitions (included here because linkers can't connect a template declaration and a definition if they are in different files)
+// Template definitions (included here because linkers can't connect a template
+// declaration and a definition if they are in different files)
 #include "myMatrix.hpp"

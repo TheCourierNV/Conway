@@ -5,4 +5,4 @@ void printMenu();
 void printRules();
 
 void printOptions();
-void editOptions(OptionsStruct& options);
+void editOptions(OptionsStruct &options);
